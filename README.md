@@ -11,7 +11,7 @@ Install Python
 
 Make a virtual environment and activate it
 - Windows
-```
+```sh
 python -m venv venv
 venv\Scripts\activate.bat # For Command Prompt
 venv\Scripts\activate.ps1 # For powershell
