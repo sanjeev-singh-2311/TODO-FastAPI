@@ -2,7 +2,7 @@
 # Installation and Running
 ---
 - Install [Docker](https://docs.docker.com/engine/install/) using Docker Desktop on Windows or your native package manager on Linux
-- Build the Docker Compose file using `docker compose build` 
+- Build the Docker Compose file using `docker compose build` and run the containers using `docker compose up`
 - Access the Backend endpoint using `http://0.0.0.0:8000/`
 
 # For Development
