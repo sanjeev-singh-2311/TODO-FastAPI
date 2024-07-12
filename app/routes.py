@@ -14,7 +14,7 @@ todo : list[Todo] = []
 
 @app_router.get('/')
 async def get_all_todo(*, session : Annotated[Session, Depends(get_db)]) -> dict[int, Any]:
-    datas : list[Todo] = session.query(Todo).all()
+    datas : list[Todo] =  session.query(Todo).all()
     result = {}
     for data in datas:
         result.update({data.id : TodoWithoutID(**data.__dict__)})
@@ -33,7 +33,7 @@ async def add_new_todo(*, item : str, session : Annotated[Session, Depends(get_d
 @app_router.put('/{id}')
 async def change_todo_status(*, id : int, session : Annotated[Session, Depends(get_db)]):
 
-    todo = session.query(Todo).where(Todo.id == id).first()
+    todo =  session.query(Todo).where(Todo.id == id).first()
     
     if not todo:
         return {'message' : 'Todo not found'} 
@@ -46,7 +46,7 @@ async def change_todo_status(*, id : int, session : Annotated[Session, Depends(g
 @app_router.delete('/{id}')
 async def delete_todo(*, id : int, session : Annotated[Session, Depends(get_db)]):
 
-    todo = session.query(Todo).where(Todo.id == id).first()
+    todo =  session.query(Todo).where(Todo.id == id).first()
     session.delete(todo)
     session.commit()
     return {'message' : 'Todo successfully deleted'}
