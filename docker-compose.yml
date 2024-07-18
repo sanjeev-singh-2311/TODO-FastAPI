@@ -19,7 +19,7 @@ services:
   dbserver:
     image: postgres:latest
     volumes:
-      - /mount/:/var/lib/postgresql/data/
+      - ./mount/:/var/lib/postgresql/data/
     env_file:
       - ./.env
     ports:
