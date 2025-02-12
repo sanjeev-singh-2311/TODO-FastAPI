@@ -7,11 +7,12 @@ ENV PYTHONBUFFERED 1
 
 RUN python -m pip install --upgrade pip
 
-COPY ./requirements.txt requirements.txt
+RUN pip install uv
 
-RUN pip install -r requirements.txt
+COPY ./pyproject.toml pyproject.toml
 
-COPY . /backend
-# COPY . .
+COPY . .
 
-ENTRYPOINT uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+EXPOSE 8000
+
+ENTRYPOINT ["python", "-m", "uv", "run", "main.py"]
