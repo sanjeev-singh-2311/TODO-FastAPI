@@ -12,17 +12,15 @@ Install Python
 Make a virtual environment and activate it
 - Windows
 ```sh
-python -m venv venv
-venv\Scripts\activate.bat # For Command Prompt
-venv\Scripts\activate.ps1 # For powershell
+python -m pip install --upgrade pip
+pip install uv
+uv sync
 ```
 - Linux (using Bash)
 ```bash
-python -m venv venv
-source venv/bin/activate
+# Install uv from the system package manager
 ```
 Install the required packages
 ```sh
-python -m pip install --upgrade pip
-pip install -r requirements.txt
+uv sync
 ```
